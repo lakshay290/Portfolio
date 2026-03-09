@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Lakshay Bishnoi</title>
+  <meta name="description" content="Projects by Lakshay Bishnoi — AI/ML, backend, and web development projects." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">LB</a>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Projects Section ===== -->
+  <section id="projects" class="page-section">
+    <h2 class="section-title reveal">Projects</h2>
+    <div class="projects-grid">
+
+      <!-- Project: Hospital Management System -->
+      <div class="project-card reveal">
+        <div class="project-icon">🏥</div>
+        <h3 class="project-title">Hospital Management System</h3>
+        <p class="project-desc">A scalable backend-driven HMS built with Django & DRF managing appointments, prescriptions, billing, and role-based access (Admin, Doctor, Patient). Features JWT auth, Redis caching, PostgreSQL, Docker containerization, and cloud deployment on Railway.</p>
+        <div class="project-tech">
+          <span>Django</span>
+          <span>DRF</span>
+          <span>PostgreSQL</span>
+          <span>Redis</span>
+          <span>Docker</span>
+          <span>Gunicorn</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/lakshay290/hopsital-management-system" target="_blank" rel="noopener noreferrer" class="project-link">
+            View on GitHub
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="https://hms-backend-production-7b51.up.railway.app/" target="_blank" rel="noopener noreferrer" class="project-link live-link">
+            Live Demo
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project: LMS -->
+      <div class="project-card reveal">
+        <div class="project-icon">🎓</div>
+        <h3 class="project-title">Learning Management System</h3>
+        <p class="project-desc">A modern LMS built with Django where teachers can create and manage courses, and students can enroll, complete courses, and generate certificates. Features role-based authentication for Teacher and Student access.</p>
+        <div class="project-tech">
+          <span>Python</span>
+          <span>Django</span>
+          <span>SQLite</span>
+          <span>Bootstrap</span>
+          <span>HTML/CSS</span>
+        </div>
+        <a href="https://github.com/lakshay290/Learning-Management-System" target="_blank" rel="noopener noreferrer" class="project-link">
+          View on GitHub
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Project: Appointment Scheduler -->
+      <div class="project-card reveal">
+        <div class="project-icon">🗓️</div>
+        <h3 class="project-title">Appointment Scheduler (NLP)</h3>
+        <p class="project-desc">A smart appointment scheduling app using NLP (spaCy + dateparser) and Tkinter. Book appointments with natural language like "Book a doctor appointment next Monday at 6 PM" — it extracts date, time, and purpose automatically and suggests available slots.</p>
+        <div class="project-tech">
+          <span>Python</span>
+          <span>NLP</span>
+          <span>spaCy</span>
+          <span>dateparser</span>
+          <span>Tkinter</span>
+          <span>JSON</span>
+        </div>
+        <a href="https://github.com/lakshay290/appointment-scheduler" target="_blank" rel="noopener noreferrer" class="project-link">
+          View on GitHub
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Project: Medical Appointment No-Show Predictor -->
+      <div class="project-card reveal">
+        <div class="project-icon">🏥</div>
+        <h3 class="project-title">Medical No-Show Predictor</h3>
+        <p class="project-desc">A Python ML project with a Tkinter GUI that predicts whether a patient will show up or miss their medical appointment using Logistic Regression on demographic, health, and scheduling data from Kaggle.</p>
+        <div class="project-tech">
+          <span>Python</span>
+          <span>Scikit-learn</span>
+          <span>Pandas</span>
+          <span>Tkinter</span>
+        </div>
+        <a href="https://github.com/lakshay290/Medical-Appointment-No-Show-Predictor" target="_blank" rel="noopener noreferrer" class="project-link">
+          View on GitHub
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Project: Random Fact Chatbot -->
+      <div class="project-card reveal">
+        <div class="project-icon">🤖</div>
+        <h3 class="project-title">Random Fact Chatbot</h3>
+        <p class="project-desc">A fun, interactive web-based chatbot with a neon-glowing UI that delivers random quirky facts across categories like Animals, Science, History, Space, Food, and Gaming. Just type a category and get a surprise fact!</p>
+        <div class="project-tech">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+        </div>
+        <a href="https://github.com/lakshay290/random-fact-chatbot" target="_blank" rel="noopener noreferrer" class="project-link">
+          View on GitHub
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Project: EcoKernel Process Monitor -->
+      <div class="project-card reveal">
+        <div class="project-icon">🖥️</div>
+        <h3 class="project-title">EcoKernel Process Monitor</h3>
+        <p class="project-desc">A lightweight, intelligent process monitoring tool for Windows that tracks real-time CPU, memory, and disk usage with graphical analysis, logging, optimization suggestions, and remote monitoring via SSH or web dashboard.</p>
+        <div class="project-tech">
+          <span>Python</span>
+          <span>psutil</span>
+          <span>Tkinter</span>
+          <span>Matplotlib</span>
+          <span>Paramiko</span>
+        </div>
+        <a href="https://github.com/lakshay290/process-monitor" target="_blank" rel="noopener noreferrer" class="project-link">
+          View on GitHub
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Add your projects here -->
+
+      <!-- Project: Event Reminder -->
+      <div class="project-card reveal">
+        <div class="project-icon">📅</div>
+        <h3 class="project-title">Event Reminder System</h3>
+        <p class="project-desc">A C++ console-based Event Reminder System that lets you add, view, delete, and get reminders for events. Features persistent storage via local file, today's date matching, and a colorful ANSI-based console UI.</p>
+        <div class="project-tech">
+          <span>C++</span>
+          <span>File I/O</span>
+          <span>Console UI</span>
+        </div>
+        <a href="https://github.com/lakshay290/evnet-remainder" target="_blank" rel="noopener noreferrer" class="project-link">
+          View on GitHub
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Designed &amp; Built by <span>Lakshay Bishnoi</span> &copy; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

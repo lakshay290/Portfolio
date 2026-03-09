@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakshay Bishnoi | Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Lakshay Bishnoi — CSE student, AI/ML enthusiast, and backend developer." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Particle Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">LB</a>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero" id="home">
+    <p class="hero-subtitle">Hello, I'm</p>
+    <h1 class="hero-name">Lakshay Bishnoi</h1>
+    <p class="hero-tagline">
+      <span class="typing-text"></span><span class="cursor"></span>
+    </p>
+    <a href="projects.html" class="hero-cta">View My Work</a>
+  </section>
+
+  <!-- Download CV Button -->
+  <a href="certifications/Lakshay Bishnoi cv.pdf" download class="download-cv-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download CV
+  </a>
+
+  <!-- Download Portfolio as PDF Button -->
+  <button class="download-portfolio-btn" onclick="downloadFullPortfolio()" title="Download Portfolio as PDF">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Designed &amp; Built by <span>Lakshay Bishnoi</span> &copy; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    async function downloadFullPortfolio() {
+      const pages = ['index.html', 'about.html', 'projects.html', 'certifications.html', 'contact.html'];
+      const pageTitles = ['Home', 'About Me', 'Projects', 'Certifications', 'Contact'];
+      let combinedContent = '';
+
+      for (let i = 0; i < pages.length; i++) {
+        try {
+          const res = await fetch(pages[i]);
+          const html = await res.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const section = doc.querySelector('.hero, .page-section');
+          if (section) {
+            combinedContent += '<div class="pdf-page">';
+            combinedContent += '<h1 class="pdf-page-title">' + pageTitles[i] + '</h1>';
+            combinedContent += section.innerHTML;
+            combinedContent += '</div>';
+          }
+        } catch (e) { /* skip failed pages */ }
+      }
+
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html><head>
+          <title>Lakshay Bishnoi - Portfolio</title>
+          <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: 'Poppins', sans-serif; color: #222; background: #fff; padding: 2rem; }
+            .pdf-page { page-break-after: always; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid #eee; }
+            .pdf-page:last-child { page-break-after: avoid; border-bottom: none; }
+            .pdf-page-title { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #7b61ff; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #00ffaa; }
+            h1, h2, h3 { color: #111; }
+            .hero-name { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: #7b61ff; background: none; -webkit-text-fill-color: #7b61ff; }
+            .hero-subtitle { font-size: 1rem; color: #555; margin-bottom: 0.5rem; }
+            .hero-tagline { font-size: 1rem; color: #333; margin: 0.5rem 0; }
+            .hero-cta { display: none; }
+            .cursor { display: none; }
+            .section-title { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #7b61ff; margin-bottom: 1rem; }
+            .about-text p { margin-bottom: 0.8rem; line-height: 1.7; color: #333; }
+            .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+            .tech-tag { background: #f0f0f0; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; color: #333; border: 1px solid #ddd; }
+            .projects-grid, .certs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1rem; }
+            .project-card, .cert-card { background: #f9f9f9; border: 1px solid #ddd; border-radius: 10px; padding: 1.2rem; }
+            .project-title, .cert-title { font-size: 1rem; margin-bottom: 0.3rem; color: #111; }
+            .project-desc { font-size: 0.85rem; color: #555; line-height: 1.5; }
+            .project-tech { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+            .project-tech span { background: #e8e8e8; padding: 0.2rem 0.5rem; border-radius: 10px; font-size: 0.7rem; color: #444; }
+            .cert-issuer { font-size: 0.8rem; color: #777; }
+            .cert-img { max-width: 100%; border-radius: 6px; margin-bottom: 0.5rem; }
+            .cert-download { display: none; }
+            .project-links { display: none; }
+            .profile-card { text-align: center; margin-bottom: 1.5rem; }
+            .profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+            .profile-img-wrapper { display: inline-block; }
+            .profile-name-hero { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: #7b61ff; background: none; -webkit-text-fill-color: #7b61ff; margin-top: 0.5rem; }
+            .contact-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+            .contact-item { display: flex; align-items: center; gap: 0.5rem; color: #333; text-decoration: none; font-size: 0.9rem; }
+            .contact-item svg { width: 20px; height: 20px; fill: #7b61ff; }
+            .contact-text { color: #555; line-height: 1.6; margin-bottom: 1rem; }
+            img { max-width: 100%; }
+            @media print {
+              body { padding: 1rem; }
+              .pdf-page { page-break-after: always; }
+            }
+          </style>
+        </head>
+        <body>${combinedContent}
+          <script>
+            window.onload = function() {
+              setTimeout(function() { window.print(); window.close(); }, 500);
+            };
+          <\/script>
+        </body></html>
+      `);
+      printWindow.document.close();
+    }
+  </script>
+</body>
+</html>
