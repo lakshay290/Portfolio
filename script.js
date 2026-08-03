@@ -169,6 +169,7 @@ document.querySelectorAll('.projects-grid .project-card, .certs-grid .cert-card'
 /* ===== Read More Button Functionality ===== */
 const projectPages = [
   'project-hms.html',
+  'project-covid-detection.html',
   'project-lms.html',
   'project-appointment-scheduler.html',
   'project-medical-predictor.html',
